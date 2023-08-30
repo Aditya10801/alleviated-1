@@ -1,7 +1,44 @@
 {% extends 'base.html' %}
 {% block title %}
     Home
-{% endblock %}
+{% endblock title %}
 {% block content %}
+<div class="h-[75vh] flex flex-cols justify-center items-center">
+    <div class="grid">
+        <h1 class="text-4xl text-black text-center">Top trends in tech, art, and culture</h1>
+        <h1 class="text-3xl text-[#8B8B8B] text-center">sent to your inbox weekly</h1>
+        <div class="flex flex-cols justify-center items-center">
+            <div class="h-20 w-[30rem] rounded-full p-2 mt-10 border-[0.12rem] border-black flex gap-2 px-10">
+                <Div class=" text-3xl flex flex-cols justify-center items-center"><ion-icon
+                        name="search-outline"></ion-icon></Div>
+                <input class="h-full w-full p-5 flex flex-cols justify-center items-center rounded-full"
+                    placeholder="Your email">
 
-{% endblock %}
+            </div>
+        </div>
+        <div class="text-[0.8rem] text-center mt-2 text-[#8b8b8b]">No unsolicited emails; you can unsubscribe at any
+            time</div>
+    </div>
+</div>
+<div class="w-screen px-10 mt-10 ">
+    <h1 class="text-2xl font-bold ml-10">Featured</h1>
+    <div class="h-[90vh] w-full rounded-[4rem] overflow-hidden bg-center mt-10 bg-gray-200"><img src="/static/thumbnails/{{featured.thumbnail}}" alt=""></div>
+</div>
+<div class="w-screen px-10 mt-10 ">
+    <h1 class="text-2xl font-bold ml-10">Classics</h1>
+    
+</div>
+<div class="px-10 grid lg:md:grid-cols-3 lg:md:grid-rows grid-rows py-10 gap-10">
+    {% for blog in blogs %}
+    <div class="h-96 w-96 bg-gray-200 rounded-3xl relative">
+        <img src="/static/thumbnails/{{blog.thumbnail}}" class="rounded-3xl" />
+        <div class="flex flex-cols bottom-5 absolute">
+            <div class="justify-start ml-8">{{blog.title}}</div>
+            <div class=" rounded-full ml-20 bg-gray-100 px-2 ">{{blog.category}}</div>
+        </div>
+    </div>
+    {% endfor %}
+
+
+</div>
+{% endblock content %}

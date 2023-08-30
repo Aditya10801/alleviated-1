@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block title %}
+    Post a blog
+{% endblock title %}
+{% block content %}
+<div class="h-screen w-screen flex flex-cols">
+    <div class="w-1/2 bg-cover h-screen" id="sigupdiv">
+        <img src="{{url_for('static', filename='signup.png')}}" />
+    </div>
+    <div class="w-2/3 flex flex-cols px-20 justify-center items-center h-screen ">
+    <div class="grid">
+        <img src="{{url_for('static', filename='logo.png')}}">
+        <div class="text-4xl font-light mt-20">Post your own blog here. </div>
+        <form action="/post" method="post" class="mt-10" enctype="multipart/form-data">
+            {{form.hidden_tag()}}
+            {{form.csrf_token}}
+            <label for="title">Blog Thumbnail</label>
+            <input name="thumbnail" id="thumbnail" type="file" class="p-5 text-xl w-full h-12 border-2 mt-2 border-black" />
+            <label for="title">Blog title</label>
+            {{form.title(class='p-5 text-xl w-full h-12 border-2 mt-2 border-black')}}
+            <label for="title">Blog category (Choose wisely, this affects views)</label>
+            {{form.category(class='p-5 text-xl w-full h-12 border-2 mt-2 border-black')}}
+            <label for="title">Short description</label>
+            {{form.short_desc(class='p-5 text-xl w-full h-12 border-2 mt-2 border-black')}}
+            <label for="title">Blog content</label>
+            {{form.content(class='p-5 text-xl w-full h-12 border-2 mt-2 border-black')}}
+            <button class="w-full h-12 bg-black text-white mt-5 hover:bg-white hover:text-black hover:border-2 hover:border-black
+            " >Post</button>
+    
+        </form>
+{% endblock content %}

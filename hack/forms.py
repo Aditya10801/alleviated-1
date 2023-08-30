@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField,PasswordField,SubmitField, IntegerField
+from wtforms import StringField,PasswordField,SubmitField, TextAreaField, FileField
 from wtforms.validators import DataRequired, Length
 
 class LoginForm(FlaskForm):
@@ -12,3 +12,10 @@ class RegForm(FlaskForm):
     username = StringField('Username', validators=[DataRequired(), Length(min=3, max=32)])
     password = PasswordField('Password',validators=[DataRequired(), Length(min=8, max=128)])
     submit = SubmitField("Register")
+
+class BlogForm(FlaskForm):
+    title = StringField('title', validators=[DataRequired()])
+    short_desc = StringField('title', validators=[DataRequired()])
+    category = StringField('title', validators=[DataRequired()])
+    content = TextAreaField('text', validators=[DataRequired()])
+    thumbnail = FileField('file', validators=[DataRequired()])
