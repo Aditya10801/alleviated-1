@@ -1,32 +1,30 @@
 {% extends 'base.html' %}
 {% block title %}
-    Login
+Login
 {% endblock title %}
 {% block content %}
-<div class="h-screen w-screen flex flex-cols">
-    <div class="w-1/2 bg-cover h-screen" id="sigupdiv">
+<div class=" w-screen flex flex-cols mb-20">
+    <div class="w-1/2 bg-cover h-screen overflow-hidden" id="sigupdiv">
         <img src="{{url_for('static', filename='signup.png')}}" />
     </div>
-    <div class="w-2/3 flex flex-cols px-20 justify-center items-center h-screen ">
-    <div class="grid">
-        <img src="{{url_for('static', filename='logo.png')}}">
-        <h1 class="text-4xl font-light mt-20">Sign in or <a href="/reg" class="underline">create an account</a></h1>
-        <form action="/login" method="post" class="mt-10">
-            {{form.hidden_tag()}}
-            {{form.csrf_token}}
-            <label for="email">Email Address</label>
-            {{form.email(class='p-5 text-xl w-full h-12 border-2 mt-2 border-black')}}
-            <label for="email">Password</label>
-            {{form.password(class='p-5 text-xl w-full h-12 border-2 mt-2 border-black')}}
-            <button class="w-full h-12 bg-black text-white mt-5 hover:bg-white hover:text-black hover:border-2 hover:border-black
-            " >CONTINUE</button>
-    
-        </form>
-        <div class="flex flex-cols w-full mt-5 gap-5">
-            <hr class="mt-3" style="width:50%;text-align:left;margin-left:0;border-color: black;">
-            <h1 class="text-gray-500">or</h1>
-            <hr class="mt-3" style="width:50%;text-align:left;margin-left:0;border-color: black;">
-        </div>
-        <button class="w-full h-12 bg-white text-black border-2 border-black mt-5" >CONTINUE WITH GOOGLE</button>
-        <button class="w-full h-12 bg-white text-black border-2 border-black  mt-5" >CONTINUE WITH APPLE</button>
-{% endblock content %}
+    <div class="w-2/3 flex flex-cols px-20 justify-center items-center h-screen  ">
+        <div class="grid">
+            <img src="{{url_for('static', filename='logo.png')}}" class="">
+            <h1 class="text-4xl font-light mt-20">Sign in or <a href="/reg" class="underline">create an account</a></h1>
+            <form action="/login" method="post" class="mt-10">
+                {{form.hidden_tag()}}
+                {{form.csrf_token}}
+                <label for="email">Email Address</label>
+                {{form.email(class='p-5 text-xl w-full h-12 border-2 mt-2 border-black')}}
+                <label for="email">Password</label>
+                {{form.password(class='p-5 text-xl w-full h-12 border-2 mt-2 border-black')}}
+                <button class="w-full h-12 bg-black text-white mt-5 hover:bg-white hover:text-black hover:border-2 hover:border-black
+            ">CONTINUE</button>
+
+            </form>
+          
+            </div>
+    </div>
+</div>
+
+{% endblock %}
